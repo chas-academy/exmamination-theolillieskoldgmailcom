@@ -10,7 +10,7 @@ const htmlBalance = document.getElementById("balance")
 //Arrayer för inkomster & utgifter
 const incomeArray = []
 const expenseArray = []
-//const transactionArray = []
+const transactionArray = []
 let saldo = 0
 
 
@@ -20,14 +20,14 @@ let saldo = 0
 htmlIncomeButton.addEventListener("click",()=>{
     collectIncome()
     showIncome()
-    //showTransactions()
+    showTransactions()
 })
 
 //Knapptryck för att lägga till kostnad
 htmlExpenseButton.addEventListener("click",()=>{      
     collectExpense()
     showExpense()
-    //showTransactions()
+    showTransactions()
 })
 
 
@@ -43,7 +43,7 @@ function collectIncome(){
         transactionobject.amount = amount
         transactionobject.type = "income"
         incomeArray.push(transactionobject)
-        //transactionArray.push(transactionobject)
+        transactionArray.push(transactionobject)
 
         saldo += Number(amount)
         updateBalance();
@@ -62,7 +62,7 @@ function collectExpense(){
         transactionobject.amount = amount
         transactionobject.type = "expense"
         expenseArray.push(transactionobject)
-        //transactionArray.push(transactionobject)
+        transactionArray.push(transactionobject)
 
         saldo -= Number(amount)
         updateBalance();
@@ -91,7 +91,7 @@ function showExpense(){
     }
 }
 
-/*
+
 //Funtion för att visa samtliga transaktioner på HTML sidan
 function showTransactions(){
     htmlTransactionList.innerHTML = ""
@@ -101,7 +101,7 @@ function showTransactions(){
         htmlTransactionList.appendChild(li)
     }
 }
-*/
+
 
 //Funktion för att uppdatera saldot på HTML sidan
 function updateBalance(){
