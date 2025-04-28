@@ -40,7 +40,7 @@ function collectIncome(){
     let amount = htmlAmountInput.value
  
         transactionobject.description = desc
-        transactionobject.amount = amount
+        transactionobject.amount = Number(amount)
         transactionobject.type = "income"
         incomeArray.push(transactionobject)
         transactionArray.push(transactionobject)
@@ -59,7 +59,7 @@ function collectExpense(){
     let amount = htmlAmountInput.value
 
         transactionobject.description = desc
-        transactionobject.amount = amount
+        transactionobject.amount = Number(amount)
         transactionobject.type = "expense"
         expenseArray.push(transactionobject)
         transactionArray.push(transactionobject)
@@ -74,7 +74,7 @@ function collectExpense(){
 //funktion för att visa upp inkomst på HTML sidan
 function showIncome(){
     htmlIncomeList.innerHTML = ""
-    for(i of incomeArray){
+    for(let i of incomeArray){
         const li = document.createElement("li")
         li.textContent = `${i.description} - ${i.amount}kr`
         htmlIncomeList.appendChild(li)
@@ -84,7 +84,7 @@ function showIncome(){
 //funktion för att visa upp kostnad på HTML sidan
 function showExpense(){
     htmlExpenseList.innerHTML = ""
-    for(e of expenseArray){
+    for(let e of expenseArray){
         const li = document.createElement("li")
         li.textContent = `${e.description} - ${e.amount}kr`
         htmlExpenseList.appendChild(li)
@@ -95,7 +95,7 @@ function showExpense(){
 //Funtion för att visa samtliga transaktioner på HTML sidan
 function showTransactions(){
     htmlTransactionList.innerHTML = ""
-    for(t of transactionArray){
+    for(let t of transactionArray){
         const li = document.createElement("li")
         li.textContent = `${t.description} - ${t.amount}kr`
         htmlTransactionList.appendChild(li)
